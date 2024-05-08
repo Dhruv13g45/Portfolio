@@ -1,0 +1,28 @@
+body {
+  background-color: rgb(14, 14, 20);
+  color: white;
+  position: relative;
+  font-family: "Kanit";
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+@media(width>1440px) {
+  .about {
+    width: 100%;
+  }
+}
+
+@media(width>2500px) {
+  .about {
+    margin: 0% 30%;
+  }
+}
+
+@media(width<800px) {
+  .about {
+    flex-direction: column;
+  }
+}
