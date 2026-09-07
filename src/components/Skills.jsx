@@ -3,11 +3,11 @@ import "../App.css";
 const groups = [
   {
     label: "Build",
-    items: ["React", "Node.js", "Express", "JavaScript", "Tailwind CSS"],
+    items: ["React", "Node.js", "Express", "JavaScript", "TypeScript", "Tailwind CSS", "Python"],
   },
   {
     label: "Data",
-    items: ["Postgres", "SQL", "MongoDB", "Redis", "REST APIs"],
+    items: ["Postgres", "SQL", "MongoDB", "Redis", "REST APIs", "Kafka"],
   },
   {
     label: "Intelligence",
