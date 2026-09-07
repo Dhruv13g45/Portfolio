@@ -1,47 +1,75 @@
-import React from 'react'
-import '../App.css'
-import Skills from './Skills.jsx'
-import Aboutimg from '../assets/aboutimg.png'
-import { TbPointFilled } from "react-icons/tb";
+import "../App.css";
+import Skills from "./Skills.jsx";
 
-const About = () => {
-  return (
-    <>
-      <div className='about w-full mt-10 shadow-2xl rounded-[25px] px-10'>
-        <h1 className='text-3xl text-center w-full hidden md:block md:p-5 underline underline-offset-2'>About Me</h1>
-        <div className='md:p-8 text-justify text-lg flex md:flex-row flex-col-reverse justify-evenly items-center gap-3 -mt-10'>
-
-
-          <div className='w-full md:w-[50%] '>
-            <img src={Aboutimg} alt="aboutimg" className='w-full h-full' />
-          </div>
-
-          <h1 className='w-full md:w-[50%] border border-black rounded-3xl font-bold text-xl mt-10 md:m-0 sm:text-3xl text-center py-3 px-5'>"Writing my journey so someone may find their FootPrints"</h1>
-
-
-        </div>
-
-        <div className='w-[100%] flex flex-col gap-3 text-sm sm:text-xl -mt-5'>
-
-          <p>
-            <TbPointFilled className='inline' /> I thrive in the realm of <span className='font-bold'>frontend development</span>, boasting mastery in <span className='font-bold'>HTML5, CSS3, and JavaScript</span>.</p>
-          <p>
-            <TbPointFilled className='inline' /> My toolkit extends to leveraging advanced CSS frameworks such as <span className='font-bold'>Bootstrap 5 and Tailwind CSS</span>, enabling me to craft visually stunning and responsive web interfaces.
-          </p>
-          <p>
-            <TbPointFilled className='inline' />  At present, my focus lies on deepening my <span className='font-bold'>proficiency in React JS</span>, as I recognize its pivotal role in modern web development.
-          </p>
-          <p>
-            <TbPointFilled className='inline' />  Looking ahead, I am eagerly preparing to <span className='font-bold'>explore backend technologies</span>, aiming to cultivate a comprehensive skill set that spans the entire web development spectrum.
-            Driven by a passion for delivering seamless user experiences, I am committed to continually refining my frontend skills and embracing new challenges in the dynamic world of technology.
-          </p>
-        </div>
-
-
-        <Skills />
+const About = () => (
+  <div className="reveal section about-page">
+    <div className="section-heading">
+      <div>
+        <div className="eyebrow">02 / The person behind the code</div>
+        <h2>
+          Curious by default.
+          <br />
+          <span className="text-lime">Useful by design.</span>
+        </h2>
       </div>
-    </>
-  )
-}
+      <span className="section-label">Based in Maharashtra, India</span>
+    </div>
+    <div className="about-grid">
+      <div className="about-manifesto">
+        <p className="large-copy">
+          I started with pixels and interfaces. Now I work across the whole
+          stack to make products that feel considered from the first click to
+          the last database query.
+        </p>
+        <p className="muted">
+          My sweet spot is the space between product thinking and
+          implementation: translating ambiguous problems into simple systems,
+          then shipping them with care.
+        </p>
+        <a
+          className="text-link"
+          href="https://hashnode.com/@dhruv134507"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Read my notes on Hashnode <span>↗</span>
+        </a>
+      </div>
+      <div className="timeline">
+        <div>
+          <span>01</span>
+          <div>
+            <strong>Frontend foundation</strong>
+            <p>
+              React, JavaScript, accessibility, responsive interfaces, and the
+              craft of making complex things feel clear.
+            </p>
+          </div>
+        </div>
+        <div>
+          <span>02</span>
+          <div>
+            <strong>Full-stack systems</strong>
+            <p>
+              MERN applications, REST APIs, authentication, Postgres, SQL,
+              MongoDB, and production-minded data flows.
+            </p>
+          </div>
+        </div>
+        <div>
+          <span>03</span>
+          <div>
+            <strong>Intelligent products</strong>
+            <p>
+              LLM integrations, Inngest workflows, and GenAI experiences that
+              are grounded in useful product outcomes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <Skills />
+  </div>
+);
 
-export default About
+export default About;

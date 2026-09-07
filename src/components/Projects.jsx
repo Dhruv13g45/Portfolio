@@ -1,44 +1,67 @@
-import React from 'react'
-import { ProjectInfo } from '../data.js'
-import { Link } from 'react-router-dom'
-import { CiStreamOn } from "react-icons/ci";
-import { GoFileSubmodule } from "react-icons/go";
+import "../App.css";
+import { ProjectInfo } from "../data.js";
+import { FiArrowUpRight, FiGithub } from "react-icons/fi";
 
+const projects = [
+  {
+    title: ProjectInfo[0].name,
+    type: "Developer workflow / Full-stack",
+    description: ProjectInfo[0].description,
+    stack: ProjectInfo[0].stack,
+    live: ProjectInfo[0].live,
+    repo: ProjectInfo[0].repoLink,
+    tone: "lime",
+  },
+  {
+    title: ProjectInfo[1].name,
+    type: "Career platform / Full-stack",
+    description: ProjectInfo[1].description,
+    stack: ProjectInfo[1].stack,
+    live: ProjectInfo[1].live,
+    repo: ProjectInfo[1].repoLink,
+    tone: "cyan",
+  },
+];
 
-
-
-const Projects = () => {
-
-
-
-
-  return (
-    <>
-      <div className="projects w-full flex gap-5 flex-col mt-5  rounded-3xl p-5">
-        {
-          ProjectInfo.map((prj) => (
-            <div className='md:flex-row flex-col flex items-center justify-between gap-5 md:p-5  rounded-3xl shadow-2xl' key={prj.id}>
-              <div className='md:w-[50%] w-full'>
-                <img src={prj.path} alt={prj.alt} className='rounded-xl' />
-              </div>
-              <div className='md:w-[50%] w-full'>
-                <h1 className='font-bold text-2xl text-center underline underline-offset-4 mb-3'>{prj.alt}</h1>
-                <p dangerouslySetInnerHTML={{ __html: prj.prjDiscription }} className=' text-md px-3 sm:p-0 sm:text-lg'></p>
-                <div className='flex justify-evenly items-center'>
-                  <Link to={prj.live}>
-                    <button className='px-7 py-3 mt-5 mb-10 md:md-0 bg-black text-white rounded-3xl hover:bg-gray-900 duration-300 flex  items-center gap-3'>Live <CiStreamOn className='text-xl font-extrabold' /></button>
-                  </Link>
-                  <Link to={prj.repoLink}>
-                    <button className='px-7 py-3 mt-5 mb-10 md:md-0 bg-black text-white rounded-3xl hover:bg-gray-900 duration-300 flex  items-center gap-3'>Github <GoFileSubmodule /></button>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          ))
-        }
+const Projects = () => (
+  <div className="reveal section projects-page">
+    <div className="section-heading">
+      <div>
+        <div className="eyebrow">03 / Selected work</div>
+        <h2>
+          Things I’ve
+          <br />
+          <span className="text-lime">made real.</span>
+        </h2>
       </div>
-    </>
-  )
-}
+      <span className="section-label">02 projects / open for inspection</span>
+    </div>
+    <div className="project-list">
+      {projects.map((project, index) => (
+        <article className={`project-card ${project.tone}`} key={project.title}>
+          <div className="project-index">0{index + 1}</div>
+          <div className="project-visual">
+            <span>{project.title.split(" ")[0]}</span>
+            <i>{"{}"}</i>
+          </div>
+          <div className="project-content">
+            <div className="eyebrow">{project.type}</div>
+            <h3>{project.title}</h3>
+            <p>{project.description}</p>
+            <div className="project-meta">{project.stack}</div>
+            <div className="project-links">
+              <a href={project.live} target="_blank" rel="noreferrer">
+                View live <FiArrowUpRight />
+              </a>
+              <a href={project.repo} target="_blank" rel="noreferrer">
+                <FiGithub /> Source
+              </a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+);
 
-export default Projects
+export default Projects;

@@ -1,62 +1,92 @@
-import React from 'react'
-import HomeBg from "../assets/homebg.png"
-import { contact } from "../data.js"
-import { Link } from 'react-router-dom';
-import { FaLinkedin } from "react-icons/fa";
-import { FaSquareXTwitter } from "react-icons/fa6";
-import { FaGithubSquare } from "react-icons/fa";
-import { HiDocumentText } from "react-icons/hi2";
-import '../App.css'
+import "../App.css";
+import {
+  FiArrowUpRight,
+  FiFileText,
+  FiGithub,
+  FiLinkedin,
+  FiPenTool,
+} from "react-icons/fi";
+import { contact } from "../data.js";
+
+const resumeLink = contact.find((item) => item.alt === "Resume").path;
 
 const Home = () => {
   return (
-    <>
-      <div className='home w-full flex md:flex-row flex-col justify-between  items-center mt-10 sm:shadow-2xl rounded-[25px] '>
-        <div className="info lg:w-1/2 w-full lg:px-10 px-3 py-5">
-          <div className='text-left text-3xl'>
-            <h2 >Hi 👋,</h2>
-            <h2 >I'm Dhruv Goradia,</h2>
+    <div className="home-page reveal">
+      <section className="hero">
+        <div className="hero-copy">
+          <div className="eyebrow">01 / Full-stack developer</div>
+          <h1 className="display">
+            I build the <span className="text-lime">thinking layer</span> of the
+            web.
+          </h1>
+          <p className="hero-intro">
+            Hey, I’m Dhruv. A full-stack developer turning thoughtful product
+            ideas into fast, intelligent, and reliable digital experiences.
+          </p>
+          <div className="button-row">
+            <a href="/projects" className="button-primary">
+              Explore selected work <FiArrowUpRight />
+            </a>
+            <a
+              href={resumeLink}
+              className="button-ghost"
+              target="_blank"
+              rel="noreferrer"
+            >
+              View resume <FiFileText />
+            </a>
+            <a href="mailto:dhruvhgoradia@gmail.com" className="button-ghost">
+              Start a conversation
+            </a>
           </div>
-          <h1 className='text-[4rem] font-bold text-left  m-0 w-full role'>FRONT-END DEVELOPER</h1>
-          <p className='text-2xl text-gray-900 text-left'>A passionate Front-End Developer <br /> bringing ideas into Real Life Projects
-          </p>
-          <p className='text-2xl text-gray-900 text-left mt-2'>
-            Proficiency in creating visually stunning websites and Web Apps.
-          </p>
-
-          <div className='flex justify-evenly items-center mt-5 w-full gap-3'>
-            {
-              contact.map((item) => (
-                <div key={item.alt} className='homeContactText w-full text-center py-2 bg-black text-white font-semibold rounded-3xl  hover:bg-white hover:text-black hover:border hover:border-black duration-300'>
-                  <Link to={item.path} target="_blank">
-                    <h1 className='text-xl'>{item.alt}</h1>
-                  </Link>
-                </div>
-              ))
-            }
-
-
-            <a href={contact[0].path} target="_blank">
-              <FaLinkedin className='icons text-[3rem] mt-3' />
+          <div className="social-row">
+            <a
+              href="https://github.com/Dhruv13g45"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FiGithub /> Github
             </a>
-            <a href={contact[2].path} target="_blank">
-              <FaSquareXTwitter className='icons text-[3rem] mt-3' />
+            <a
+              href="https://www.linkedin.com/in/dhruv-goradia-3111102a6/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FiLinkedin /> LinkedIn
             </a>
-            <a href={contact[1].path} target="_blank">
-              <FaGithubSquare className='icons text-[3rem] mt-3' />
+            <a
+              href="https://hashnode.com/@dhruv134507"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FiPenTool /> Hashnode
             </a>
-            <a href={contact[3].path} target="_blank">
-              <HiDocumentText className='icons text-[3rem] mt-3' />
-            </a>
-
           </div>
         </div>
-        <div className="homeimage w-1/2 lg:block hidden -z-50">
-          <img src={HomeBg} alt="homebg" />
+        <div className="hero-aside">
+          <div className="orbit-card">
+            <div className="orbit-ring ring-one" />
+            <div className="orbit-ring ring-two" />
+            <div className="orbit-core">
+              DG<span>.</span>
+            </div>
+          </div>
+          <div className="hero-note">
+            <span className="accent">●</span> Currently exploring: LLM
+            orchestration, agentic workflows & product engineering.
+          </div>
         </div>
-      </div>
-    </>
-  )
-}
+      </section>
+      <section className="proof-strip">
+        <span className="section-label">What I bring</span>
+        <span>Frontend craft</span>
+        <span>Backend systems</span>
+        <span>GenAI integrations</span>
+        <span>Clear technical writing</span>
+      </section>
+    </div>
+  );
+};
 
-export default Home
+export default Home;
